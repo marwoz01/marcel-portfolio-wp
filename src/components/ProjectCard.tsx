@@ -1,11 +1,14 @@
+type ProjectAccess = "public" | "demo-only" | "private";
+
 type Project = {
   title: string;
   desc: string;
   stack: string[];
-  github?: string;
   demo?: string;
+  github?: string;
   image?: string;
   tagline?: string;
+  access?: ProjectAccess;
 };
 
 export function ProjectCard({ p }: { p: Project }) {
@@ -54,26 +57,35 @@ export function ProjectCard({ p }: { p: Project }) {
       </div>
 
       {/* LINKS */}
-      <div className="mt-5 flex flex-wrap gap-3 text-xs">
-        {p.demo && (
-          <a
-            className="rounded-full border border-white/15 bg-white px-4 py-2 uppercase tracking-[0.18em] text-black hover:bg-white/90"
-            href={p.demo}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Live demo
-          </a>
-        )}
-        {p.github && (
-          <a
-            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 uppercase tracking-[0.18em] text-white/80 hover:bg-white/10"
-            href={p.github}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
+      <div className="mt-5 flex flex-col gap-2 text-xs">
+        <div className="flex flex-wrap gap-3">
+          {p.demo && (
+            <a
+              className="rounded-full border border-white/15 bg-white px-4 py-2 uppercase tracking-[0.18em] text-black hover:bg-white/90"
+              href={p.demo}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Live demo
+            </a>
+          )}
+
+          {p.github && (
+            <a
+              className="rounded-full border border-white/15 bg-white/5 px-4 py-2 uppercase tracking-[0.18em] text-white/80 hover:bg-white/10"
+              href={p.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          )}
+        </div>
+
+        {!p.github && p.access === "private" && (
+          <span className="text-[11px] uppercase tracking-[0.18em] text-white/40">
+            Source code private
+          </span>
         )}
       </div>
     </article>

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Container } from "@/components/Container";
 import { SectionHeader } from "@/components/SectionHeader";
-import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectsCarousel } from "@/components/ProjectsCarousel";
 import { Footer } from "@/components/Footer";
 
@@ -61,8 +60,6 @@ const projects = [
 ];
 
 export default function Page() {
-  const [expanded, setExpanded] = useState(false);
-  const visibleProjects = expanded ? projects : projects.slice(0, 3);
   return (
     <>
       <Navbar />
@@ -74,7 +71,7 @@ export default function Page() {
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/50">
-                  · Web Developer ·
+                  · Wordpress Developer ·
                 </p>
 
                 <h1 className="mt-4 text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[0.95]">
@@ -82,9 +79,9 @@ export default function Page() {
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-white/70 leading-relaxed">
-                  Third-year Computer Science student focused on building
-                  modern, performant web applications with React and Next.js.
-                  Looking to grow as a Web Developer.
+                  Third-year Computer Science student focused on WordPress
+                  development - custom themes, UI tweaks, and site performance.
+                  Also building modern UIs with React/Next.js.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -119,12 +116,12 @@ export default function Page() {
         </section>
 
         {/* ABOUT */}
-        <section id="about" className="min-h-screen flex items-center">
+        <section className="relative py-20 md:py-28">
           <Container>
             <SectionHeader
               kicker="About Me"
               title="Minimalist UI. Solid engineering."
-              subtitle="I focus on frontend development, component architecture, accessibility, and performance."
+              subtitle="I focus on WordPress development, custom themes, UI customization, and performance-focused websites."
             />
 
             <div className="grid gap-6 md:grid-cols-12">
@@ -152,15 +149,28 @@ export default function Page() {
                 <p className="text-xs uppercase tracking-[0.26em] text-white/50">
                   About
                 </p>
-                <p className="mt-4 text-sm leading-relaxed text-white/75">
-                  I’m a third-year Computer Science student with a strong focus
-                  on frontend development and modern web technologies. I work
-                  with React and Next.js to build clean, responsive, and
-                  user-friendly applications, and I have basic experience with
-                  Node.js and Express on the backend. In addition, I’m expanding
-                  my skills by learning WordPress and PHP, aiming to better
-                  understand full-stack development and real-world web projects.
-                </p>
+                <div className="mt-4 space-y-4 text-sm leading-relaxed text-white/75">
+                  <p>
+                    I’m a third-year Computer Science student focused on
+                    WordPress and frontend development. I build and customize
+                    WordPress themes using HTML, CSS, JavaScript, and PHP
+                    basics, working with existing codebases and ready-made
+                    themes.
+                  </p>
+
+                  <p>
+                    My work includes layout and template modifications, styling
+                    adjustments, and ensuring responsive, clean user interfaces.
+                    I focus on maintainable code and performance-aware frontend
+                    solutions within WordPress.
+                  </p>
+
+                  <p>
+                    I also work with React and Next.js as an additional skill
+                    set, which supports better frontend structure and code
+                    quality, but my main focus remains on WordPress development.
+                  </p>
+                </div>
               </div>
 
               {/* TECH STACK */}
@@ -171,22 +181,18 @@ export default function Page() {
 
                 <div className="mt-4 flex flex-wrap gap-2">
                   {[
+                    "Wordpress",
+                    "PHP (themes & basics)",
                     "HTML",
                     "CSS",
                     "JavaScript",
-                    "TypeScript",
-                    "React",
+                    "React.js",
                     "Next.js",
                     "Tailwind",
                     "LESS",
                     "SASS",
                     "Node.js (basics)",
                     "Express (basics)",
-                    "WordPress (basics)",
-                    "PHP (basics)",
-                    "Git/GitHub",
-                    "Figma",
-                    "Canva",
                   ].map((t) => (
                     <span
                       key={t}
@@ -234,12 +240,12 @@ export default function Page() {
         </section>
 
         {/* PROJECTS */}
-        <section id="projects" className="min-h-screen flex items-center">
+        <section className="relative py-20 md:py-28">
           <Container>
             <SectionHeader
               kicker="Projects"
               title="Featured projects"
-              subtitle="Selected builds with live demos and source code."
+              subtitle="Selected WordPress and frontend projects. Live demos available."
             />
 
             <ProjectsCarousel projects={projects} />
@@ -249,7 +255,7 @@ export default function Page() {
         {/* CONTACT */}
         <section id="contact">
           <Container>
-            <div className="grid gap-10 md:grid-cols-12">
+            <div className="grid gap-10 md:grid-cols-12 pb-12">
               {/* LEFT */}
               <div className="md:col-span-5">
                 <p className="text-xs uppercase tracking-[0.26em] text-white/50">

@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Marcel Woźniak — Web Developer",
-  description: "Portfolio — Next.js / React / Tailwind",
+  title: "Marcel Woźniak — Wordpress Developer",
+  description: "Portfolio",
 };
 
 export default function RootLayout({
